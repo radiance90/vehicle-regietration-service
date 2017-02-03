@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://soacourse.unsw.edu.au/pinkslipdefinitions"
+	xmlns:tns="http://soacourse.unsw.edu.au/pinkslipdefinitions"
+	elementFormDefault="qualified">
+
+	<xsd:complexType name="renewalInputType">
+		<xsd:sequence>
+			<xsd:element name="firstName" type="xsd:string" />
+			<xsd:element name="lastName" type="xsd:string" />
+			<xsd:element name="rego" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="approvalType">
+		<xsd:sequence>
+			<xsd:element name="passed" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="ageType">
+		<xsd:sequence>
+			<xsd:element name="age" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:element name="renewalInformationMessage" type="tns:renewalInputType" />
+	<xsd:element name="approvalMessage" type="tns:approvalType" />
+	<xsd:element name="ageMessage" type="tns:ageType" />
+	<xsd:element name="vehicleAgeMessage" type="tns:renewalInputType" />
+
+</xsd:schema>

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://greenslip.soacourse.unsw.edu.au/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns3="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://soacourse.unsw.edu.au/greenslip" name="GSCheckPTImplService" targetNamespace="http://greenslip.soacourse.unsw.edu.au/">
+  <wsdl:import location="greenslip.wsdl" namespace="http://soacourse.unsw.edu.au/greenslip">
+    </wsdl:import>
+  <wsdl:binding name="GSCheckPTImplServiceSoapBinding" type="ns1:GSCheckPT">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GSCheck">
+      <soap:operation soapAction="http://soacourse.unsw.edu.au/greenslip/GSCheck" style="document"/>
+      <wsdl:input name="GSCheck">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GSCheckResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GSCheckPTImplService">
+    <wsdl:port binding="tns:GSCheckPTImplServiceSoapBinding" name="GSCheckPTImplPort">
+      <soap:address location="http://localhost:8080/GreenSlipCheck/greenslip"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

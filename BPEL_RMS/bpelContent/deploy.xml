@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy xmlns="http://www.apache.org/ode/schemas/dd/2007/03" xmlns:greenslip.soacourse.unsw.edu.au="http://greenslip.soacourse.unsw.edu.au/" xmlns:pinkslip.soacourse.unsw.edu.au="http://pinkslip.soacourse.unsw.edu.au/" xmlns:rms="http://soacourse.unsw.edu.au/rms">
+  <process name="rms:RMS">
+    <active>true</active>
+    <retired>false</retired>
+    <process-events generate="all"/>
+    <provide partnerLink="client">
+      <service name="rms:RMSService" port="RMSPort"/>
+    </provide>
+    <invoke partnerLink="green">
+      <service name="greenslip.soacourse.unsw.edu.au:GSCheckPTImplService" port="GSCheckPTImplPort"/>
+    </invoke>
+    <invoke partnerLink="pink">
+      <service name="pinkslip.soacourse.unsw.edu.au:PSCheckPTImplService" port="PSCheckPTImplPort"/>
+    </invoke>
+  </process>
+</deploy>

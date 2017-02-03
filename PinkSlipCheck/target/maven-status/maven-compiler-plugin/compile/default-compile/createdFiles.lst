@@ -1,0 +1,10 @@
+au/edu/unsw/soacourse/pinkslipdefinitions/RenewalInputType.class
+au/edu/unsw/soacourse/pinkslip/PSCheckPTImpl.class
+au/edu/unsw/soacourse/pinkslipdefinitions/ObjectFactory.class
+au/edu/unsw/soacourse/pinkslipdefinitions/ApprovalType.class
+au/edu/unsw/soacourse/pinkslip/RecordHandler.class
+au/edu/unsw/soacourse/pinkslipdefinitions/package-info.class
+au/edu/unsw/soacourse/pinkslipdefinitions/AgeType.class
+au/edu/unsw/soacourse/pinkslip/RecordBean.class
+au/edu/unsw/soacourse/pinkslip/PSCheckPT.class
+au/edu/unsw/soacourse/pinkslip/PinkSlipCheck.class

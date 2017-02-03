@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns2="http://soacourse.unsw.edu.au/greenslipdefinitions" xmlns:ns1="http://soacourse.unsw.edu.au/greenslip" name="GSCheckPT" targetNamespace="http://soacourse.unsw.edu.au/greenslip">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://soacourse.unsw.edu.au/greenslipdefinitions" elementFormDefault="qualified" targetNamespace="http://soacourse.unsw.edu.au/greenslipdefinitions" version="1.0">
+
+  <xs:element name="approvalMessage" type="tns:approvalType"/>
+
+  <xs:element name="renewalInformationMessage" type="tns:renewalInputType"/>
+
+  <xs:complexType name="renewalInputType">
+    <xs:sequence>
+      <xs:element name="firstName" type="xs:string"/>
+      <xs:element name="lastName" type="xs:string"/>
+      <xs:element name="rego" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="approvalType">
+    <xs:sequence>
+      <xs:element name="passed" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="GSCheck">
+    <wsdl:part element="ns2:renewalInformationMessage" name="renewalreq">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GSCheckResponse">
+    <wsdl:part element="ns2:approvalMessage" name="renewalresp">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="GSCheckPT">
+    <wsdl:operation name="GSCheck">
+      <wsdl:input message="ns1:GSCheck" name="GSCheck">
+    </wsdl:input>
+      <wsdl:output message="ns1:GSCheckResponse" name="GSCheckResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

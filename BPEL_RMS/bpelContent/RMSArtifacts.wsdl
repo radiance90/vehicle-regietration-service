@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<definitions name="RMS"
+        targetNamespace="http://soacourse.unsw.edu.au/rms"
+        xmlns:tns="http://soacourse.unsw.edu.au/rms"
+        xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+        xmlns="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:green="http://soacourse.unsw.edu.au/greenslip"
+        xmlns:pink="http://soacourse.unsw.edu.au/pinkslip"
+        >
+		<import namespace="http://soacourse.unsw.edu.au/greenslip"
+            location="greenslip.wsdl"/>
+        <import namespace="http://soacourse.unsw.edu.au/pinkslip"
+            location="pinkslip.wsdl"/>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     PARTNER LINK TYPE DEFINITION
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <plnk:partnerLinkType name="greenslipLinkType">
+        <plnk:role name="green" portType="green:GSCheckPT"/>
+    </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="pinkslipLinkType">
+        <plnk:role name="pink" portType="pink:PSCheckPT"/>
+    </plnk:partnerLinkType>
+    
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     BINDING DEFINITION - Defines the message format and protocol details
+     for a web service.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <binding name="RMSBinding" type="green:GSCheckPT">
+    	<soap:binding style="document"
+    		transport="http://schemas.xmlsoap.org/soap/http" />
+    	<operation name="GSCheck">
+    		<soap:operation
+    			soapAction="http://soacourse.unsw.edu.au/greenslip/GSCheck" />
+    		<input>
+    			<soap:body use="literal" />
+    		</input>
+    		<output>
+    			<soap:body use="literal" />
+    		</output>
+    	</operation>
+    </binding>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     SERVICE DEFINITION - A service groups a set of ports into
+     a service unit.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <service name="RMSService">
+    	<port name="RMSPort" binding="tns:RMSBinding">
+    		<soap:address location="http://localhost:6060/ode/processes/RMSService" />
+    	</port>
+    </service>
+</definitions>
